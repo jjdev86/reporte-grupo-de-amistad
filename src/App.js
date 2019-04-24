@@ -1,94 +1,56 @@
 import React, { Component } from 'react';
-
+import './App.css';
+import General from './components/general';
+import Members from './components/members';
+import 'bootstrap/dist/css/bootstrap.css';
+import Axios from 'axios';
 
 class App extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-
+      userID: ''
     }
+  }
+
+  Save(data) {
+    // make request to server to save form
 
   }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <p>
-            Hello World
-          </p>
-          <General />
-        </header>
+      <div className="container">
+        <div className="row">
+          <div className="col-lg-12 col-md-12 logoWrap">
+            <h1> Groupos de Amistad - Iglesia Fuego Pentecostes</h1>
+          </div>
+        </div>
+        <div style={{ clear: 'left', backgroundColor: '#F1F4F7', overflow: 'hidden' }}>
+          <div className="" style={{ color: "#676570" }}>
+            {/* <header className="App-header"> */}
+            <form name="event_report" encType="multipart/form-data" method="post" >
+              <ul className="col-lg-12 col-md-12">
+                <fieldset>
+                  <li style={{ listStyle: 'none' }}>
+                    <General Save={this.Save.bind(this)} />
+                  </li>
+                  <li style={{ listStyle: 'none' }}>
+                    <Members Save={this.Save.bind(this)} />
+                  </li>
+                </fieldset>
+              </ul>
+            </form>
+            {/* </header> */}
+          </div>
+          <div className="col-lg-12 col-md-12 col-xs-12 btnsection">
+            <button type="submit" className="btn btn-primary">Submit</button>
+          </div>
+        </div>
       </div>
     );
   }
-}
-
-
-function General(props) {
-  return (
-    <div>
-      <label>
-        Nombre de lider:
-        <input />
-      </label>
-      <label>
-        Telefono:
-        <input />
-      </label>
-      <label>
-        Nombre de asistente:
-        <input />
-      </label>
-      <lable>
-        Telefono:
-        <input />
-      </lable>
-      <label>
-        Nombre de grupo:
-        <input />
-      </label>
-      <label>
-        Zona:
-        <input />
-      </label>
-      <label>
-        Nombre de tema:
-        <input />
-      </label>
-      <label for="event-date">
-        Fecha de reunion:
-        <input type="date" id="event-date" />
-      </label>
-      <label for="event-time">
-        Hora de reunion:
-        <input type="time" id="event-time" name="event-time" />
-      </label>
-      <label >
-        Duracion de reunion:
-        <input />
-      </label>
-      <p>Seleccione el tipo de reunion:</p>
-      <div>
-        <input type="radio" id="grupo-regular" name="grupo-regular" value="grupo-regular" />
-        <label for="huey">Grupo regular</label>
-      </div>
-
-      <div>
-        <input type="radio" id="compartido" name="compartido" value="compartido" />
-        <label for="dewey">Compartido</label>
-      </div>
-
-      <div>
-        <input type="radio" id="social" name="social" value="social" />
-        <label for="louie">Social</label>
-      </div>
-      <div>
-        <input type="radio" id="multiplicacion" name="multiplicacion" value="multiplicacion" />
-        <label for="louie">Multiplicacion</label>
-      </div>
-    </div>
-  );
 }
 
 export default App;
