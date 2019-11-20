@@ -14,10 +14,11 @@ class Members extends Component {
   }
 
   handleChange(e, index) {
+    let visitors = [...this.state.visitors];
+    // this.state.visitors[index] = e.target.value;
 
-    this.state.visitors[index] = e.target.value;
-
-    this.setState({ visitors: this.state.visitors });
+    visitors[index] = e.target.value;
+    this.setState({ visitors: visitors });
   }
 
   handleRemove(index) {
