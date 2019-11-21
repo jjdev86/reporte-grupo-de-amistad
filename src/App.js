@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import General from './components/general';
+// import General from './components/general';
+import General1 from './components/gernal1';
 import Members from './components/members';
 import 'bootstrap/dist/css/bootstrap.css';
 import Axios from 'axios';
@@ -34,7 +35,7 @@ class App extends Component {
               <ul className="col-lg-12 col-md-12">
                 <fieldset>
                   <li style={{ listStyle: 'none' }}>
-                    <General Save={this.Save.bind(this)} />
+                    <General1 Save={this.Save.bind(this)} />
                   </li>
                   <li style={{ listStyle: 'none' }}>
                     <Members Save={this.Save.bind(this)} />
