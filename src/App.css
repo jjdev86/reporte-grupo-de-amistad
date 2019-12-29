@@ -1,18 +1,117 @@
-.App {
-  max-width: 80%;
+
+header {
+  background-color: #05668D;
+  color: #fff;
+  height: 82px;
+}
+#logo {
+  text-align: center;
+  padding-top: .5rem;
+}
+.subLogo {
+  text-align: center;
 }
 
-
-.App-header {
-  /* background-color: #282c34;
-  min-height: 100vh;
+.container {
+  background-color: #fff;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white; */
+  padding-top: 40px;
+  padding-bottom: 40px;
+  width: 40% !important;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 }
 
+.mainHeading {
+  font-size: 18px;
+  font-weight: 700;
+}
 
+.formEmail {
+  margin-bottom: 10px;
+  height: 47px;
+}
 
+.formPassword {
+  margin-bottom: 10px;
+  height: 48px;
+}
+
+.id_label {
+  position: absolute;
+  padding-left: 4px;
+  padding-bottom: 6px;
+  color: #787070;
+  font-size: 13px;
+}
+
+.formElement {
+  box-sizing: border-box;
+  font-size: 16px;
+  height: 48px;
+  width: 100%;
+  border: 2px solid #F57C14;
+  padding: 16px 0 4px 4px;
+}
+
+.formSubmit {
+  margin-top: 14px;
+}
+.buttonAll {
+  border: 1px solid #F57C14;
+  height: 38px;
+  border-radius: 18px;
+  color: #fff;
+  background-color: #F57C14;
+}
+
+@media only screen and (max-width: 575.98px) {
+  .container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  width: 80% !important;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+
+  .formElement {
+    box-sizing: border-box;
+    font-size: 16px;
+    height: 48px;
+    width: 278px;
+    border: 2px solid #F57C14;
+    padding: 16px 0 4px 4px;
+  }
+
+  .buttonAll {
+    border: 1px solid #F57C14;
+    height: 38px;
+    border-radius: 18px;
+    color: #fff;
+    background-color: #F57C14;
+  }
+
+  .formSubmit {
+    margin-top: 14px;
+  }
+}
+
+/* @media only screen and (min-width: 1200px) {
+  #logo {
+    text-align: center;
+  }
+  .subLogo {
+    text-align: center;
+  }
+} */

@@ -4,6 +4,7 @@ import General from './components/general';
 import Members from './components/members';
 import 'bootstrap/dist/css/bootstrap.css';
 import Axios from 'axios';
+import Login from './components/login';
 
 class App extends Component {
   constructor(props) {
@@ -21,33 +22,26 @@ class App extends Component {
   // test
   render() {
     return (
-      <div className="container">
-        <div className="row">
-          <div className="col-lg-12 col-md-12 logoWrap">
-            <h1> Groupos de Amistad - Iglesia Fuego Pentecostes</h1>
+      <div className="mainHtml">
+        <header role="banner">
+          <div className="html5header">
+            <div className="logoStripParent">
+              <div className="logoStripChild">
+                <div id="logo">
+                  <h3 className="logoTitle">Iglesia Fuego Pentecostes</h3>
+                </div>
+                <div className="subLogo">
+                  <h5 className="subLogoTitle">Reporte de grupos de amistad</h5>
+                </div>
+              </div>
+            </div>
           </div>
+        </header>
+
+        <div className="mainContainer container">
+          <Login></Login>
         </div>
-        <div style={{ clear: 'left', backgroundColor: '#F1F4F7', overflow: 'hidden' }}>
-          <div className="" style={{ color: "#676570" }}>
-            {/* <header className="App-header"> */}
-            <form name="event_report" encType="multipart/form-data" method="post" >
-              <ul className="col-lg-12 col-md-12">
-                <fieldset>
-                  <li style={{ listStyle: 'none' }}>
-                    <General Save={this.Save.bind(this)} />
-                  </li>
-                  <li style={{ listStyle: 'none' }}>
-                    <Members Save={this.Save.bind(this)} />
-                  </li>
-                </fieldset>
-              </ul>
-            </form>
-            {/* </header> */}
-          </div>
-          <div className="col-lg-12 col-md-12 col-xs-12 btnsection">
-            <button type="submit" className="btn btn-primary">Submit</button>
-          </div>
-        </div>
+
       </div>
     );
   }
