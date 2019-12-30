@@ -1,28 +1,140 @@
-.App {
-  max-width: 80%;
+header {
+  background-color: #05668d;
+  color: #fff;
+  height: 82px;
 }
 
+#logo {
+  text-align: center;
+  padding-top: 0.5rem;
+}
+.subLogo {
+  text-align: center;
+}
 
-.App-header {
-  /* background-color: #282c34;
-  min-height: 100vh;
+/* removes input outside border when focus */
+input:focus {
+  outline: none;
+  box-shadow: 0px 0px 6px 2px #ccc;
+}
+
+.container {
+  background-color: #fff;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white; */
+  padding-top: 40px;
+  padding-bottom: 40px;
+  width: 400px !important;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.mainHeading {
+  font-size: 18px;
+  font-weight: 700;
 }
 .col-form-label {
   text-align: right;
 }
 
-@media (max-width: 575.98px) { 
-  .col-form-label {
-    text-align: left;
-  }
+.formEmail {
+  margin-bottom: 10px;
+  height: 55px;
 }
 
-input[type=date] {
-  width: 300px;
+.formPassword {
+  margin-bottom: 10px;
+  height: 55px;
+}
+
+.id_label {
+  display: flex;
+  align-items: flex-start;
+  position: absolute;
+  padding-left: 4px;
+  padding-bottom: 6px;
+  color: #787070;
+  font-size: 13px;
+}
+
+.formElementsWrapper:focus-within label {
+  font-weight: bold;
+  color: #000;
+}
+
+.formElement {
+  box-sizing: border-box;
+  font-size: 16px;
+  height: 48px;
+  width: 100%;
+  border: 2px solid #f57c14;
+  padding: 16px 0 4px 4px;
+}
+
+.formSubmit {
+  margin-top: 14px;
+  width: 100%;
+}
+.buttonAll {
+  border: 1px solid #f57c14;
+  height: 38px;
+  border-radius: 18px;
+  color: #fff;
+  background-color: #f57c14;
+}
+
+.onError {
+  display: block;
+  font-size: 12px;
+  color: red;
+  font-weight: bold;
+}
+.errorContainer {
+  /* margin-top: -12px; */
+  display: none;
+}
+@media only screen and (max-width: 575.98px) {
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 90% !important;
+    max-height: 500px;
+    position: fixed;
+    top: 55%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+  .logIn {
+    max-height: 500px;
+  }
+  .formElement {
+    box-sizing: border-box;
+    font-size: 16px;
+    height: 48px;
+    width: 278px;
+    border: 2px solid #f57c14;
+    padding: 16px 0 4px 4px;
+  }
+
+  .buttonAll {
+    border: 1px solid #f57c14;
+    height: 38px;
+    border-radius: 18px;
+    color: #fff;
+    background-color: #f57c14;
+  }
+
+  .formSubmit {
+    display: flex;
+    align-items: center;
+    margin-top: 14px;
+  }
 }
