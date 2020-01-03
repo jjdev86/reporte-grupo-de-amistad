@@ -9,6 +9,11 @@ var strongRegex = new RegExp(
   "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{6,})"
 );
 
+const passwordValid = (pass) => {
+  return pass.length;
+};
+
+
 // Form validator for required fields
 const validateForm = errors => {
   let valid = true;
@@ -26,5 +31,6 @@ const validateForm = errors => {
 module.exports = {
   validEmailRegex,
   validateForm,
-  strongRegex
+  strongRegex,
+  passwordValid
 };

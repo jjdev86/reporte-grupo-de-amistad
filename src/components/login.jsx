@@ -1,15 +1,30 @@
 import React, { Component } from "react";
-import { validEmailRegex, validateForm, strongRegex } from "./validation Func";
-
+import {
+  validEmailRegex,
+  validateForm,
+  strongRegex,
+  passwordValid
+} from "./validation Func";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  Redirect,
+  useHistory,
+  useLocation
+} from "react-router-dom";
 class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
       email: "",
       password: "",
+      isAuth: false,
       errors: {
         email: "",
-        password: ""
+        password: "",
+        auth: ""
       }
     };
     this.handleEvent = this.handleEvent.bind(this);
@@ -33,12 +48,12 @@ class Login extends Component {
     // validate email
     errors.email = validEmailRegex(email)
       ? ""
-      : "Por favor, introdusca un correo electrónico válido";
+      : "Introdusca un correo electrónico válido.";
     // validate password
-    errors.password = strongRegex.test(password)
+    errors.password = passwordValid(password)
       ? ""
-      : "La contraseña no es fuerte";
-
+      : "Introdusca su contraseña.";
+    // console.log(password, `after check`);
     // validate the errors
     let isError = validateForm(errors);
 
@@ -47,21 +62,45 @@ class Login extends Component {
         {
           errors
         },
-        () => console.log(this.state)
+        // () => console.log(this.state)
       );
     } else {
-      console.log("valid information entered");
+      this.setState(
+        {
+          errors
+        }, 
+        () => {
+          // make ajax request to validate email & password accounts.
+          const random = ["yes", "no"];
+          let isUserVerified = random[Math.floor(Math.random() * random.length)];
+          console.log(isUserVerified, `was user verified`)
+          this.setState({isAuth : isUserVerified}, () => console.log(this.state.isAuth, `Authorized?`));
+        }
+        
+      );
+
+
+      // console.log("valid information entered");
     }
   }
   render() {
     return (
-      <div className="logIn col-sm-12">
+      <Route>
+      {this.state.isAuth === 'yes' ? (
+          <Redirect
+            to={{
+              pathname: "/home",
+              // state: { from: location }
+            }}
+          />
+        ) : (
+          <div className="logIn col-sm-12">
         <div className="loginInMain">
           <h2 className="mainHeading">Vea su cuenta</h2>
           <form autoComplete="off" name="login" id="frmLogin">
             <div className="formElementsWrapper formEmail">
               <label className="id_label" htmlFor="useremail">
-                Email
+                Correo electronico
               </label>
               <input
                 className="formElement login_field formElementText"
@@ -104,6 +143,9 @@ class Login extends Component {
           </form>
         </div>
       </div>
+        )
+      }
+      </Route>
     );
   }
 }
