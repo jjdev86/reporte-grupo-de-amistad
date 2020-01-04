@@ -1,10 +1,10 @@
-import React, { Component } from "react";
+import React from "react";
 
-export default function Home({username}) {
+export default function Home({location: {state}}) {
     return (
         <div>
             <h1>Home</h1>
-            {username} after login
+            {state.email} after login
         </div>
     )
 };

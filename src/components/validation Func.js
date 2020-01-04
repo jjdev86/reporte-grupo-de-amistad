@@ -5,9 +5,9 @@ const validEmailRegex = email => {
   return expression.test(String(email).toLowerCase());
 };
 
-var strongRegex = new RegExp(
-  "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{6,})"
-);
+// var strongRegex = new RegExp(
+//   "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{6,})"
+// );
 
 const passwordValid = (pass) => {
   return pass.length;
@@ -31,6 +31,6 @@ const validateForm = errors => {
 module.exports = {
   validEmailRegex,
   validateForm,
-  strongRegex,
+  // strongRegex,
   passwordValid
 };

@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 import "./App.css";
-import General from "./components/general";
-import Members from "./components/members";
+
 import "bootstrap/dist/css/bootstrap.css";
 import Axios from "axios";
 import Login from "./components/login";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link, Redirect } from "react-router-dom";
 import Home from './components/home';
 
 class App extends Component {
@@ -13,17 +12,18 @@ class App extends Component {
     super(props);
 
     this.state = {
-      userID: ""
+      isAuth: false
     };
   }
 
   Save(data) {
     // make request to server to save form
   }
+
+
   // test
   render() {
     return (
-      <Router>
       <div className="mainHtml">
         <header role="banner">
           <div className="html5header">
@@ -40,16 +40,39 @@ class App extends Component {
           </div>
         </header>
         <div className="mainContainer container">
-          <Switch>
-            {/* <Login></Login> */}
-            <Route path='/login' component={Login} />
-            <Route path='/' component={Home} />
-          </Switch>
+          <Router>
+            <PrivateRoute/>
+            <Route  path='/login' component={Login} />
+            <Route path='/home' component={Home} />
+          </Router>
         </div>
       </div>
-      </Router>
+
     );
   }
 }
+
+// const fakeAuth = {
+//   isAuthenticated: false,
+//   authenticate(cb) {
+//     this.isAuthenticated = true
+//     setTimeout(cb, 100)
+//   },
+//   signout(cb) {
+//     this.isAuthenticated = false
+//     setTimeout(cb, 100)
+//   }
+// }
+
+const PrivateRoute = ({ isAuthenticated, component: Component, ...rest }) => 
+(
+  
+  <Route {...rest} render={(props) => (
+    isAuthenticated === true
+      ? <Component {...props} />
+      : <Redirect to='/login' />
+  )} />
+);
+
 
 export default App;

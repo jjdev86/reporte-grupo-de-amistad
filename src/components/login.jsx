@@ -2,29 +2,19 @@ import React, { Component } from "react";
 import {
   validEmailRegex,
   validateForm,
-  strongRegex,
   passwordValid
 } from "./validation Func";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  Redirect,
-  useHistory,
-  useLocation
-} from "react-router-dom";
+
 class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
       email: "",
       password: "",
-      isAuth: false,
+      isAuth: null,
       errors: {
         email: "",
-        password: "",
-        auth: ""
+        password: ""
       }
     };
     this.handleEvent = this.handleEvent.bind(this);
@@ -46,9 +36,13 @@ class Login extends Component {
     e.preventDefault();
     const { errors, email, password } = this.state;
     // validate email
-    errors.email = validEmailRegex(email)
-      ? ""
-      : "Introdusca un correo electrónico válido.";
+    if (email.length) {
+      errors.email = validEmailRegex(email)
+        ? ""
+        : "Introdusca un correo electrónico válido.";
+    } else {
+      errors.email = "Introdusca un correo electrónico.";
+    }
     // validate password
     errors.password = passwordValid(password)
       ? ""
@@ -61,42 +55,49 @@ class Login extends Component {
       this.setState(
         {
           errors
-        },
+        }
         // () => console.log(this.state)
       );
     } else {
       this.setState(
         {
           errors
-        }, 
+        },
         () => {
           // make ajax request to validate email & password accounts.
-          const random = ["yes", "no"];
-          let isUserVerified = random[Math.floor(Math.random() * random.length)];
-          console.log(isUserVerified, `was user verified`)
-          this.setState({isAuth : isUserVerified}, () => console.log(this.state.isAuth, `Authorized?`));
-        }
-        
-      );
+          const random = [true, false];
+          let isUserVerified =
+            random[Math.floor(Math.random() * random.length)];
 
+          console.log(isUserVerified, `was user verified`);
+          this.setState(
+            { isAuth: isUserVerified, auth: "La contraseña no es valida" },
+            () => {
+              if (this.state.isAuth) {
+                this.props.history.push({
+                  pathname: '/home',
+                  state: {isAuth: this.state.isAuth, email: this.state.email}
+                });
+              }
+
+            }
+          );
+        }
+      );
 
       // console.log("valid information entered");
     }
   }
   render() {
     return (
-      <Route>
-      {this.state.isAuth === 'yes' ? (
-          <Redirect
-            to={{
-              pathname: "/home",
-              // state: { from: location }
-            }}
-          />
-        ) : (
-          <div className="logIn col-sm-12">
+      <div className="logIn col-sm-12">
         <div className="loginInMain">
           <h2 className="mainHeading">Vea su cuenta</h2>
+          {this.state.isAuth === false && (
+            <span className="onError">
+              La combinacion de correo electronico y contraseña no es valida
+            </span>
+          )}
           <form autoComplete="off" name="login" id="frmLogin">
             <div className="formElementsWrapper formEmail">
               <label className="id_label" htmlFor="useremail">
@@ -143,9 +144,6 @@ class Login extends Component {
           </form>
         </div>
       </div>
-        )
-      }
-      </Route>
     );
   }
 }
