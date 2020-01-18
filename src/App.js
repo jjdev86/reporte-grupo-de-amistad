@@ -39,30 +39,18 @@ class App extends Component {
             </div>
           </div>
         </header>
-        <div className="mainContainer container">
-          <Router>
-            <PrivateRoute/>
-            <Route  path='/login' component={Login} />
-            <Route path='/home' component={Home} />
-          </Router>
-        </div>
-      </div>
+        {/* <div className="mainContainer container"> */}
+          <Login/>
 
+        <footer>
+          <div>
+            Jose Valadez
+          </div>
+        </footer>
+      </div>
     );
   }
 }
-
-// const fakeAuth = {
-//   isAuthenticated: false,
-//   authenticate(cb) {
-//     this.isAuthenticated = true
-//     setTimeout(cb, 100)
-//   },
-//   signout(cb) {
-//     this.isAuthenticated = false
-//     setTimeout(cb, 100)
-//   }
-// }
 
 const PrivateRoute = ({ isAuthenticated, component: Component, ...rest }) => 
 (

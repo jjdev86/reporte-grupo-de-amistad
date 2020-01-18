@@ -11,9 +11,27 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   height: 100%;
+
 }
 
+header {
+  overflow: hidden;
+  top: 0;
+  width: 100%;
+  background-color: #05668d;
+  color: #fff;
+  height: 82px;
+}
 
+footer {
+  /* position: fixed; */
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #13505B;
+  color: #fff;
+  height: 30px;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;

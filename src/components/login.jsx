@@ -75,11 +75,10 @@ class Login extends Component {
             () => {
               if (this.state.isAuth) {
                 this.props.history.push({
-                  pathname: '/home',
-                  state: {isAuth: this.state.isAuth, email: this.state.email}
+                  pathname: "/home",
+                  state: { isAuth: this.state.isAuth, email: this.state.email }
                 });
               }
-
             }
           );
         }
@@ -90,49 +89,206 @@ class Login extends Component {
   }
   render() {
     return (
-      <div className="logIn col-sm-12">
-        <div className="loginInMain">
-          <h2 className="mainHeading">Vea su cuenta</h2>
-          {this.state.isAuth === false && (
-            <span className="onError">
-              La combinacion de correo electronico y contraseña no es valida
-            </span>
-          )}
-          <form autoComplete="off" name="login" id="frmLogin">
-            <div className="formElementsWrapper formEmail">
-              <label className="id_label" htmlFor="useremail">
-                Correo electronico
-              </label>
-              <input
-                className="formElement login_field formElementText"
-                name="email"
-                type="email"
-                id="useremail"
-                value={this.state.email}
-                onChange={this.handleEvent}
-              />
-              {this.state.errors.email.length > 0 && (
-                <span className="onError">{this.state.errors.email}</span>
+      <div className="main">
+        <h1>Bienvenidos</h1>
+        <div className="container">
+          <div className="">
+            <div className="loginInMain">
+              <h2 className="mainHeading">Vea su cuenta</h2>
+              {this.state.isAuth === false && (
+                <span className="onError">
+                  La combinacion de correo electronico y contraseña no es valida
+                </span>
               )}
-            </div>
-            <div className="formElementsWrapper formPassword">
-              <label className="id_label" htmlFor="userpassword">
-                Contraseña
-              </label>
-              <input
-                className="formElement login_field formElementText"
-                name="password"
-                type="password"
-                id="password"
-                minLength="5"
-                value={this.state.password}
-                onChange={this.handleEvent}
-              />
-              {this.state.errors.password.length > 0 && (
-                <span className="onError">{this.state.errors.password}</span>
-              )}
-            </div>
-            <div className="formSubmit formEmail ">
+              <form autoComplete="off" name="login" id="frmLogin">
+                <div className="formElementsWrapper formEmail">
+                  <label className="id_label" htmlFor="useremail">
+                    Correo electronico
+                  </label>
+                  <input
+                    className="formElement login_field formElementText"
+                    name="email"
+                    type="email"
+                    id="useremail"
+                    value={this.state.email}
+                    onChange={this.handleEvent}
+                  />
+                  {this.state.errors.email.length > 0 && (
+                    <span className="onError">{this.state.errors.email}</span>
+                  )}
+                </div>
+                <div className="formElementsWrapper formPassword">
+                  <label className="id_label" htmlFor="userpassword">
+                    Contraseña
+                  </label>
+                  <input
+                    className="formElement login_field formElementText"
+                    name="password"
+                    type="password"
+                    id="password"
+                    minLength="5"
+                    value={this.state.password}
+                    onChange={this.handleEvent}
+                  />
+                  {this.state.errors.password.length > 0 && (
+                    <span className="onError">
+                      {this.state.errors.password}
+                    </span>
+                  )}
+                </div>
+                <div className="formElementsWrapper formPassword">
+                  <label className="id_label" htmlFor="userpassword">
+                    Contraseña
+                  </label>
+                  <input
+                    className="formElement login_field formElementText"
+                    name="password"
+                    type="password"
+                    id="password"
+                    minLength="5"
+                    value={this.state.password}
+                    onChange={this.handleEvent}
+                  />
+                  {this.state.errors.password.length > 0 && (
+                    <span className="onError">
+                      {this.state.errors.password}
+                    </span>
+                  )}
+                </div>
+                <div className="formElementsWrapper formPassword">
+                  <label className="id_label" htmlFor="userpassword">
+                    Contraseña
+                  </label>
+                  <input
+                    className="formElement login_field formElementText"
+                    name="password"
+                    type="password"
+                    id="password"
+                    minLength="5"
+                    value={this.state.password}
+                    onChange={this.handleEvent}
+                  />
+                  {this.state.errors.password.length > 0 && (
+                    <span className="onError">
+                      {this.state.errors.password}
+                    </span>
+                  )}
+                </div>
+                <div className="formElementsWrapper formPassword">
+                  <label className="id_label" htmlFor="userpassword">
+                    Contraseña
+                  </label>
+                  <input
+                    className="formElement login_field formElementText"
+                    name="password"
+                    type="password"
+                    id="password"
+                    minLength="5"
+                    value={this.state.password}
+                    onChange={this.handleEvent}
+                  />
+                  {this.state.errors.password.length > 0 && (
+                    <span className="onError">
+                      {this.state.errors.password}
+                    </span>
+                  )}
+                </div>
+                <div className="formElementsWrapper formPassword">
+                  <label className="id_label" htmlFor="userpassword">
+                    Contraseña
+                  </label>
+                  <input
+                    className="formElement login_field formElementText"
+                    name="password"
+                    type="password"
+                    id="password"
+                    minLength="5"
+                    value={this.state.password}
+                    onChange={this.handleEvent}
+                  />
+                  {this.state.errors.password.length > 0 && (
+                    <span className="onError">
+                      {this.state.errors.password}
+                    </span>
+                  )}
+                </div>
+                <div className="formElementsWrapper formPassword">
+                  <label className="id_label" htmlFor="userpassword">
+                    Contraseña
+                  </label>
+                  <input
+                    className="formElement login_field formElementText"
+                    name="password"
+                    type="password"
+                    id="password"
+                    minLength="5"
+                    value={this.state.password}
+                    onChange={this.handleEvent}
+                  />
+                  {this.state.errors.password.length > 0 && (
+                    <span className="onError">
+                      {this.state.errors.password}
+                    </span>
+                  )}
+                </div>
+                <div className="formElementsWrapper formPassword">
+                  <label className="id_label" htmlFor="userpassword">
+                    Contraseña
+                  </label>
+                  <input
+                    className="formElement login_field formElementText"
+                    name="password"
+                    type="password"
+                    id="password"
+                    minLength="5"
+                    value={this.state.password}
+                    onChange={this.handleEvent}
+                  />
+                  {this.state.errors.password.length > 0 && (
+                    <span className="onError">
+                      {this.state.errors.password}
+                    </span>
+                  )}
+                </div>
+                <div className="formElementsWrapper formPassword">
+                  <label className="id_label" htmlFor="userpassword">
+                    Contraseña
+                  </label>
+                  <input
+                    className="formElement login_field formElementText"
+                    name="password"
+                    type="password"
+                    id="password"
+                    minLength="5"
+                    value={this.state.password}
+                    onChange={this.handleEvent}
+                  />
+                  {this.state.errors.password.length > 0 && (
+                    <span className="onError">
+                      {this.state.errors.password}
+                    </span>
+                  )}
+                </div>
+                <div className="formElementsWrapper formPassword">
+                  <label className="id_label" htmlFor="userpassword">
+                    Contraseña
+                  </label>
+                  <input
+                    className="formElement login_field formElementText"
+                    name="password"
+                    type="password"
+                    id="password"
+                    minLength="5"
+                    value={this.state.password}
+                    onChange={this.handleEvent}
+                  />
+                  {this.state.errors.password.length > 0 && (
+                    <span className="onError">
+                      {this.state.errors.password}
+                    </span>
+                  )}
+                </div>
+                {/* <div className="formSubmit formEmail ">
               <input
                 type="button"
                 value="Inicie sesión"
@@ -140,8 +296,19 @@ class Login extends Component {
                 className="buttonAll col-sm-12"
                 onClick={this.validateUser}
               />
+            </div> */}
+              </form>
+              <div className="formSubmit formEmail ">
+                <input
+                  type="button"
+                  value="Inicie sesión"
+                  name="btnLogin"
+                  className="buttonAll col-sm-12"
+                  onClick={this.validateUser}
+                />
+              </div>
             </div>
-          </form>
+          </div>
         </div>
       </div>
     );
